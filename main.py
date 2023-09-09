@@ -31,6 +31,15 @@ with open(company_budget_csv) as csvfile:
     print('Greatest Increase in Profits: ' + '(' + str(profit_loss_max).strip("[]") + ')', file=output_file)
     print('Greatest Decrease in Profits: ' + '(' + str(profit_loss_max).strip("[]") + ')', file=output_file)
 
+    print('Financial Analysis')
+    print('-------------------------------')
+    print('Total Months: ' + str(count))
+    print('Total: $' + str(profit_loss_sum))
+    print('Average Change: $' + str(profit_loss_mean).strip("[]"))
+    print('Greatest Increase in Profits: ' + '(' + str(profit_loss_max).strip("[]") + ')')
+    print('Greatest Decrease in Profits: ' + '(' + str(profit_loss_max).strip("[]") + ')')
+
+
 with open(election_data_csv) as csvfile:
     csv_reader = csv.reader(csvfile, delimiter=",")
     csv_header = next(csv_reader)
@@ -56,6 +65,15 @@ with open(election_data_csv) as csvfile:
         print(result + ': ' + str(round(election_results_dict[result] / count2 * 100,3)) +
                '%' + ' ' + str(election_results_dict[result]), file=output_file)
     print('Winner: ' + election_winner, file=output_file)
+
+    print('')
+    print('Election Results')
+    print('-------------------------------')
+    print('Total Votes: ' + str(count2))
+    for result in election_results_dict:
+        print(result + ': ' + str(round(election_results_dict[result] / count2 * 100, 3)) +
+              '%' + ' ' + str(election_results_dict[result]))
+    print('Winner: ' + election_winner)
 
 output_file.close()
 
